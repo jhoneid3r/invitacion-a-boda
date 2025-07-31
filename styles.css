@@ -1,0 +1,776 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.7;
+    color: #3F2305;
+    background: #F5F5F5;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 700px;
+        padding: 30px 30px;
+    }
+}
+
+/* Main content styles */
+.invitation-content {
+    background: linear-gradient(135deg, #F5F5F5 0%, #F2EAD3 100%);
+    border-radius: 25px;
+    padding: 50px 40px;
+    box-shadow: 0 15px 50px rgba(63, 35, 5, 0.08);
+    border: 1px solid rgba(63, 35, 5, 0.1);
+    position: relative;
+    backdrop-filter: blur(20px);
+    animation: fadeIn 1.5s ease-out;
+}
+
+.invitation-content::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 1px solid rgba(63, 35, 5, 0.1);
+    border-radius: 30px;
+    pointer-events: none;
+}
+
+.invitation-content::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 1px solid rgba(218, 165, 32, 0.2);
+    border-radius: 35px;
+    pointer-events: none;
+}
+
+.wedding-header {
+    text-align: center;
+    /* margin-bottom: 40px;
+    padding: 30px 0; */
+    position: relative;
+}
+
+.couple-names {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 40px 0;
+    position: relative;
+}
+
+.wedding-icon {
+    margin-bottom: 20px;
+    opacity: 0.9;
+    animation: gentleFloat 3s ease-in-out infinite;
+}
+
+.intertwined-rings {
+    position: relative;
+    width: 41px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.ring {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: 2.5px solid #3F2305;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: 0 2px 8px rgba(63, 35, 5, 0.2);
+}
+
+.ring-1 {
+    left: 0;
+    z-index: 1;
+}
+
+.ring-2 {
+    right: 0;
+    z-index: 2;
+}
+
+.diamond {
+    position: absolute;
+    top: -6px;
+    left: 30%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, #FFD700 0%, #DAA520 100%);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    box-shadow: 0 2px 4px rgba(218, 165, 32, 0.3);
+    animation: diamondSparkle 3s ease-in-out infinite;
+}
+
+@keyframes diamondSparkle {
+
+    0%,
+    100% {
+        transform: translateX(-50%) scale(1);
+        box-shadow: 0 2px 4px rgba(218, 165, 32, 0.3);
+    }
+
+    50% {
+        transform: translateX(-50%) scale(1.2);
+        box-shadow: 0 4px 8px rgba(218, 165, 32, 0.5);
+    }
+}
+
+.couple-names::after {
+    content: '❦';
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: transparent;
+    padding: 0 30px;
+    color: #3F2305;
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 5px;
+}
+
+.decorative-line {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #3F2305, transparent);
+    margin: 35px auto;
+    position: relative;
+}
+
+.decorative-line::before,
+.decorative-line::after {
+    content: '❦';
+    position: absolute;
+    top: -12px;
+    color: #3F2305;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.decorative-line::before {
+    left: -40px;
+}
+
+.decorative-line::after {
+    right: -40px;
+}
+
+.wedding-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    color: #2a1a03;
+    margin-bottom: 25px;
+    letter-spacing: 4px;
+    font-weight: 500;
+    line-height: 1.1;
+    text-shadow: 0 1px 2px rgba(63, 35, 5, 0.1);
+}
+
+.name {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    background: linear-gradient(135deg, #2a1a03 0%, #A0522D 40%, #8B4513 70%, #654321 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 25px;
+    text-shadow: 0 2px 4px rgba(63, 35, 5, 0.1);
+    letter-spacing: 4px;
+    font-weight: 400;
+    line-height: 1.3;
+    font-style: normal;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.name small {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.name::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #3F2305, transparent);
+}
+
+.wedding-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: #3F2305;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    margin-top: 15px;
+    opacity: 0.9;
+}
+
+/* Date and time section */
+.date-time-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 70px;
+}
+
+.date-box {
+    text-align: center;
+    padding: 35px 45px;
+    background: linear-gradient(135deg, #3F2305 0%, #DFD7BF 100%);
+    border-radius: 20px;
+    color: #F5F5F5;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(63, 35, 5, 0.2);
+    border: 1px solid rgba(63, 35, 5, 0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.date-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.date-box:hover::before {
+    left: 100%;
+}
+
+.date-box:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 30px 80px rgba(63, 35, 5, 0.3);
+    background: linear-gradient(135deg, #2a1a03 0%, #BFB5A3 100%);
+}
+
+.date-box h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.95;
+    margin: 0;
+}
+
+.date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    text-shadow: 0 2px 4px rgba(63, 35, 5, 0.2);
+    margin: 0;
+}
+
+.time {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 1.1;
+    margin: 0;
+}
+
+/* Location section */
+.location-section {
+    margin-bottom: 50px;
+}
+
+.location-box {
+    text-align: center;
+    padding: 25px 30px;
+    background: linear-gradient(135deg, #DFD7BF 0%, #F2EAD3 100%);
+    border-radius: 20px;
+    color: #3F2305;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(63, 35, 5, 0.15);
+    margin-bottom: 20px;
+}
+
+.location-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.location-box:hover::before {
+    left: 100%;
+}
+
+.location-box:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(63, 35, 5, 0.25);
+}
+
+.location-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #2a1a03;
+    text-shadow: 0 1px 2px rgba(63, 35, 5, 0.1);
+}
+
+.address {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: #2a1a03;
+    font-weight: 500;
+    letter-spacing: 1px;
+    background: rgba(245, 245, 245, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #DAA520 0%, #FFD700 100%);
+    color: #2a1a03;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: 15px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 6px 20px rgba(218, 165, 32, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.map-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(218, 165, 32, 0.4);
+    background: linear-gradient(135deg, #B8860B 0%, #FFD700 100%);
+}
+
+.map-link i {
+    font-size: 1rem;
+}
+
+/* Bible verse section */
+.bible-verse {
+    text-align: center;
+    margin-bottom: 70px;
+    padding: 45px 35px;
+    background: linear-gradient(135deg, rgba(63, 35, 5, 0.05) 0%, rgba(223, 215, 191, 0.1) 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(63, 35, 5, 0.1);
+}
+
+.verse-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #555;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    letter-spacing: 0.3px;
+    background: rgba(245, 245, 245, 0.8);
+    padding: 25px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.verse-reference {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    color: #777;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    background: rgba(245, 245, 245, 0.6);
+    padding: 6px 12px;
+    border-radius: 15px;
+    display: inline-block;
+    margin-top: 15px;
+    font-style: normal;
+}
+
+/* Countdown section */
+.countdown-section {
+    text-align: center;
+    padding: 35px;
+    /* background: linear-gradient(135deg, #3F2305 0%, #DFD7BF 100%); */
+    border-radius: 20px;
+    color: #3F2305;
+    position: relative;
+    overflow: hidden;
+    /* font-size: 17px; */
+    /* /* box-shadow: 0 15px 40px rgba(63, 35, 5, 0.2); */
+}
+
+.countdown-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 1;
+}
+
+.countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.countdown-item {
+    background: rgba(245, 245, 245, 0.3);
+    padding: 15px 10px;
+    border-radius: 25px;
+    backdrop-filter: blur(15px);
+    border: 2px solid #3F2305;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(63, 35, 5, 0.15);
+    animation: pulse 2s infinite;
+}
+
+.countdown-item:hover {
+    background: rgba(245, 245, 245, 0.25);
+    transform: translateY(-5px);
+}
+
+.countdown-item .number {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-shadow: 0 2px 4px rgba(63, 35, 5, 0.2);
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.countdown-item:hover .number {
+    transform: scale(1.1);
+    color: #DAA520;
+    text-shadow: 0 4px 8px rgba(218, 165, 32, 0.3);
+}
+
+.countdown-item .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    opacity: 0.95;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Premium effects */
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(63, 35, 5, 0.15);
+    }
+
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 6px 20px rgba(63, 35, 5, 0.2);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(63, 35, 5, 0.15);
+    }
+}
+
+@keyframes gentleFloat {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.shimmer-effect {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+}
+
+.couple-names {
+    animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.date-box {
+    animation: scaleIn 1s cubic-bezier(0.4, 0, 0.2, 1);
+    animation-delay: 0.3s;
+}
+
+.location-box {
+    animation: slideInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
+    animation-delay: 0.6s;
+}
+
+.bible-verse {
+    animation: fadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    animation-delay: 0.9s;
+}
+
+.countdown-section {
+    animation: slideInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
+    animation-delay: 1.2s;
+}
+
+.map-link {
+    animation: fadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    animation-delay: 1.5s;
+}
+
+.couple-signature {
+    text-align: center;
+    margin-top: 50px;
+    padding: 30px 0;
+    animation: fadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    animation-delay: 1.8s;
+}
+
+.monogram {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #3F2305 0%, #C58C3A 50%, #B86F2D 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+}
+
+.closing-message {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: #555;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.signature-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: #666;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px 15px;
+        max-width: 100%;
+    }
+
+    .wedding-title {
+        font-size: 2.5rem;
+    }
+
+    .name {
+        font-size: 3rem;
+        letter-spacing: 2px;
+    }
+
+    .invitation-content {
+        padding: 40px 25px;
+    }
+
+    .date-time-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .date-box {
+        padding: 30px 35px;
+    }
+
+    .countdown {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .countdown-section {
+        padding: 30px 25px;
+    }
+
+    .countdown-section h3 {
+        font-size: 1.5rem;
+    }
+
+    .bible-verse {
+        padding: 25px;
+    }
+
+    .verse-text {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px 10px;
+    }
+
+    .wedding-title {
+        font-size: 2rem;
+    }
+
+    .name {
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+    }
+
+    .countdown {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .countdown-item .number {
+        font-size: 1.5rem;
+    }
+
+    .countdown-item .label {
+        font-size: 0.7rem;
+    }
+
+    .invitation-content {
+        padding: 30px 20px;
+    }
+
+    .wedding-text {
+        font-size: 1.1rem;
+    }
+
+    .verse-text {
+        font-size: 1rem;
+    }
+}
